@@ -161,3 +161,4 @@ cython_debug/
 
 /just4test.py
 /desktop.ini
+.env
