@@ -1,34 +1,42 @@
-"""
-Бинарный поиск
-"""
+import random
 
-n = int(input("Введите число: "))
+def binarySearch(bi_list: list, left: int, right: int, dig: int):
+    if left < right:
+        mid = (left + right) // 2
+        if (bi_list[mid] == dig):
+            return mid
+        elif (bi_list[mid] < dig):
+            left = mid + 1
+            return binarySearch(bi_list, left, right, dig)
+        else:
+            right = mid - 1
+            return binarySearch(bi_list, left, right, dig)
+    else:
+        return None
 
-befind = []
-finded = False
+def randList(k: int, n: int, m: int):
+    rand_list = []
+    for i in range(k):
+        rand_list.append(random.randint(n, m))
+    rand_list.sort()
+    return rand_list
 
-for i in range(1000,1500):
-    befind.append(i)
+k = int(input("Введите размер массива: "))
+n = int(input("Введите первое число диапозона: "))
+m = int(input("Введите второе число диапозона: "))
+j = int(input("Введите искомое число: "))
 
-right = len(befind)
+if n > m:
+    find_arr = randList(k, m, n)
+else:
+    find_arr = randList(k, n, m)
+
+right = len(find_arr)
 left = 0
 
-if n > befind[right - 1] or n < befind[0]:
-    print("Числа нет в списке")
+x = binarySearch(find_arr, left, right, j)
+
+if (x == None):
+    print("числа", j, "нет в списке")
 else:
-    while not finded:
-
-        if (n == befind[mid]):
-            print("Число n лежит под индексом", right)
-            finded = True
-        elif (n > befind[mid]):
-            left = right / 2
-        else:
-            right = right / 2
-
-        if right - left < 10:
-            for i in range(left, right):
-                if befind[i] == n:
-                    print("Число n лежит под индексом", i)
-                    finded = True
-                
+    print("Число:", j, "находится под индексом:", x)
