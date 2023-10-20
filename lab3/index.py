@@ -15,9 +15,10 @@ def binarySearch(bi_list: list, left: int, right: int, dig: int):
         return None
 
 def randList(k: int, n: int, m: int):
-    rand_list = []
+    rand_set = set()
     for i in range(k):
-        rand_list.append(random.randint(n, m))
+        rand_set.add(random.randint(n, m))
+    rand_list = list(rand_set)
     rand_list.sort()
     return rand_list
 
