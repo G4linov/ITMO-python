@@ -1,13 +1,13 @@
 def find_garbage_id(item, garbage_list):
     for i in range(len(garbage_list)):
-        if (garbage_list[i][0] != -1 ) and (garbage_list[i][1] == item[1]):
+        if (garbage_list[i][0] != -1 ) and (garbage_list[i][1] == item):
             return i
     return None
 
 def add_new_garbage(item, garbage_list):
-    id1 = find_garbage_id(round(item[1], 1), garbage_list)
-    if id1 is not None:
-        garbage_list[id1][0] += item[0]
+    id = find_garbage_id(round(item[1], 1), garbage_list)
+    if id is not None:
+        garbage_list[id][0] += item[0]
     else:
         garbage_list.append(item)
     return garbage_list
@@ -61,7 +61,7 @@ while control:
                     break
 
     
-    while (out_list[index_order][1] != value) and (out_list[index_order][1] < value):
+    while (out_list[index_order][1] != value):
         temp_iron_len = iron_len
         out_list[index_order][2] += 1
         while temp_iron_len - size > 0:
