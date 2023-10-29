@@ -1,4 +1,4 @@
-import numpy as np
+#import numpy as np
 import random
 print("Лабораторная работа №1* \n")
 m = int(input("Введите количество строк: "))
