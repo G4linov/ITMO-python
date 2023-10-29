@@ -18,7 +18,7 @@ while True:
                 list_of_indexes.append(index)
                 out_list[index_order][1] += 1
             else:
-                el -= size
+                garbage[index] -= size
                 out_list[index_order][1] += 1
         elif out_list[index_order][1] == value:
             break
